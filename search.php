@@ -13,7 +13,7 @@ $results = $search->search();
 
 if (!$results->from->valid || !$results->to->valid)
 {
-	Page::header('Invalid location');
+	Page::header('Invalid location', 'search');
 	
 	echo '
 	<form action="search.php" method="post">
@@ -35,7 +35,7 @@ if (!$results->from->valid || !$results->to->valid)
 	die();
 }
 	
-Page::header('Search Results');
+Page::header('Search Results', 'searchResults');
 
 echo '
 	<p>
@@ -56,7 +56,7 @@ foreach($results->routes as $route)
 
 //echo '<pre>', print_r($results, true), '</pre>';
 
-Page::footer();
+Page::footer('SearchResults.init');
 
 function outputRoute(Node_Route $route)
 {
@@ -73,8 +73,8 @@ function outputRoute(Node_Route $route)
 		
 	echo implode(' &rarr; ', $transportTypes);
 	
-	echo '
-			<ul>';
+	echo '. <a href="#" class="viewDetails">Details</a>
+			<ol class="details">';
 			
 	foreach ($route->segments as $segment)
 	{
@@ -82,7 +82,7 @@ function outputRoute(Node_Route $route)
 	}
 			
 	echo '
-			</ul>
+			</ol>
 		</li>';
 }
 

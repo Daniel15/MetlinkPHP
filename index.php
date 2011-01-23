@@ -1,6 +1,6 @@
 <?php 
 require 'includes/core.php';
-Page::header('Metlink Journey Planner API test');
+Page::header('Metlink Journey Planner API test', 'search');
 ?>
 	<form action="search.php" method="post">
 		<p>

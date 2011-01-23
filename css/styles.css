@@ -1,0 +1,9 @@
+.js ol.details
+{
+	display: none;
+}
+
+.no-js .viewDetails
+{
+	display: none;
+}
